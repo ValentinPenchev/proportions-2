@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пропорции - Модерни задачи за Gen Alpha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .badge.gaming {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .badge.social {
+            background: #4ecdc4;
+            color: white;
+        }
+
+        .badge.tech {
+            background: #45b7d1;
+            color: white;
+        }
+
+        .badge.sports {
+            background: #96ceb4;
+            color: white;
+        }
+
+        .badge.money {
+            background: #ffeaa7;
+            color: #2d3436;
+        }
+
+        .badge.food {
+            background: #fd79a8;
+            color: white;
+        }
+
+        .exercise-card {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .exercise-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .difficulty {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .difficulty.easy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.hard {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .exercise-emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .exercise-text {
+            font-size: 1.15em;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .exercise-context {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        input[type="number"] {
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1em;
+            width: 140px;
+            transition: all 0.3s;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-check {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-check:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-show {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-show:hover {
+            background: #5a6268;
+        }
+
+        .feedback {
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #28a745;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #dc3545;
+            display: block;
+        }
+
+        .solution {
+            background: linear-gradient(135deg, #e7f3ff 0%, #cfe9ff 100%);
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .solution.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        .solution-step {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .solution-step::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 35px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin: 25px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .tips {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left: 5px solid #17a2b8;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 12px;
+        }
+
+        .tips h3 {
+            color: #0c5460;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .tips ul {
+            margin-left: 25px;
+        }
+
+        .tips li {
+            margin: 10px 0;
+            color: #0c5460;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .input-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            input[type="number"] {
+                width: 100%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Пропорции в реалния живот</h1>
+            <p>Модерни задачи за Gen Alpha - Gaming, Social Media, Sports & More!</p>
+        </div>
+
+        <div class="content">
+            <!-- Статистика -->
+            <div class="section">
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="solvedCount">0</div>
+                        <div class="stat-label">🎯 Решени</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">📚 Общо</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="percentSolved">0%</div>
+                        <div class="stat-label">💯 Прогрес</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="streak">0</div>
+                        <div class="stat-label">🔥 Streak</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar">START</div>
+                </div>
+            </div>
+
+            <!-- Gaming задачи -->
+            <div class="section">
+                <h2>🎮 Gaming & Esports</h2>
+
+                <!-- Задача 1 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 1</span>
+                        <span class="difficulty easy">Лесно</span>
+                    </div>
+                    <div class="exercise-emoji">🎮</div>
+                    <div class="exercise-context">
+                        Scenario: Ти и приятелите ти си купувате V-Bucks за Fortnite
+                    </div>
+                    <div class="exercise-text">
+                        Трима приятели решават да си купят общ пакет V-Bucks за 120 лв. Те разделят парите в отношение 2:3:5 според това колко често играят. Колко дава всеки?
+                    </div>
+                    <div class="input-group">
+                        <span>Играч 1 (casual):</span>
+                        <input type="number" id="q1a" placeholder="лв">
+                        <span>Играч 2 (regular):</span>
+                        <input type="number" id="q1b" placeholder="лв">
+                        <span>Играч 3 (hardcore):</span>
+                        <input type="number" id="q1c" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkAnswer3(1, 24, 36, 60)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(1)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback1"></div>
+                    <div class="solution" id="solution1">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 2 + 3 + 5 = 10</div>
+                        <div class="solution-step">Стойност на 1 част: 120 ÷ 10 = 12 лв</div>
+                        <div class="solution-step">Играч 1: 2 × 12 = 24 лв</div>
+                        <div class="solution-step">Играч 2: 3 × 12 = 36 лв</div>
+                        <div class="solution-step">Играч 3: 5 × 12 = 60 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 2 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 2</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">🏆</div>
+                    <div class="exercise-context">
+                        Scenario: Esports турнир с награден фонд
+                    </div>
+                    <div class="exercise-text">
+                        На турнир по League of Legends наградният фонд от 54 000 лв се разделя между топ 3 отборите в отношение 5:3:1. Колко печели шампионският отбор?
+                    </div>
+                    <div class="input-group">
+                        <span>Първо място:</span>
+                        <input type="number" id="q2a" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(2, 30000)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(2)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback2"></div>
+                    <div class="solution" id="solution2">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 5 + 3 + 1 = 9</div>
+                        <div class="solution-step">1 част = 54 000 ÷ 9 = 6 000 лв</div>
+                        <div class="solution-step">Първо място: 5 × 6 000 = 30 000 лв</div>
+                        <div class="solution-step">Второ място: 3 × 6 000 = 18 000 лв</div>
+                        <div class="solution-step">Трето място: 1 × 6 000 = 6 000 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 3 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 3</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">⚔️</div>
+                    <div class="exercise-context">
+                        Scenario: Minecraft сървър с различни роли
+                    </div>
+                    <div class="exercise-text">
+                        На Minecraft сървър играчите са builders, warriors и miners в отношение 4:7:9. Ако warriors са с 30 повече от builders, колко играчи има общо на сървъра?
+                    </div>
+                    <div class="input-group">
+                        <span>Общо играчи:</span>
+                        <input type="number" id="q3a" placeholder="Отговор">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(3, 200)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(3)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback3"></div>
+                    <div class="solution" id="solution3">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Разлика в части: 7 - 4 = 3 части</div>
+                        <div class="solution-step">3 части = 30 играчи</div>
+                        <div class="solution-step">1 част = 30 ÷ 3 = 10 играчи</div>
+                        <div class="solution-step">Builders: 4 × 10 = 40</div>
+                        <div class="solution-step">Warriors: 7 × 10 = 70</div>
+                        <div class="solution-step">Miners: 9 × 10 = 90</div>
+                        <div class="solution-step">Общо: 40 + 70 + 90 = 200 играчи</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media задачи -->
+            <div class="section">
+                <h2>📱 Social Media & Content Creation</h2>
+
+                <!-- Задача 4 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 4</span>
+                        <span class="difficulty easy">Лесно</span>
+                    </div>
+                    <div class="exercise-emoji">📸</div>
+                    <div class="exercise-context">
+                        Scenario: Instagram influencer разпределя време за платформи
+                    </div>
+                    <div class="exercise-text">
+                        Младият creator разпределя 10 часа седмично за съдържание в Instagram, TikTok и YouTube в отношение 3:5:2. Колко време отделя за всяка платформа?
+                    </div>
+                    <div class="input-group">
+                        <span>Instagram:</span>
+                        <input type="number" id="q4a" placeholder="часа">
+                        <span>TikTok:</span>
+                        <input type="number" id="q4b" placeholder="часа">
+                        <span>YouTube:</span>
+                        <input type="number" id="q4c" placeholder="часа">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkAnswer3(4, 3, 5, 2)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(4)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback4"></div>
+                    <div class="solution" id="solution4">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 3 + 5 + 2 = 10</div>
+                        <div class="solution-step">1 част = 10 ÷ 10 = 1 час</div>
+                        <div class="solution-step">Instagram: 3 × 1 = 3 часа</div>
+                        <div class="solution-step">TikTok: 5 × 1 = 5 часа</div>
+                        <div class="solution-step">YouTube: 2 × 1 = 2 часа</div>
+                    </div>
+                </div>
+
+                <!-- Задача 5 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 5</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">💰</div>
+                    <div class="exercise-context">
+                        Scenario: YouTuber печели от реклами и спонсори
+                    </div>
+                    <div class="exercise-text">
+                        YouTuber печели от реклами, спонсорства и мърч в отношение 3:7:5. Ако общият приход е 4500 лв месечно, колко идва от спонсорства?
+                    </div>
+                    <div class="input-group">
+                        <span>От спонсорства:</span>
+                        <input type="number" id="q5a" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(5, 2100)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(5)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback5"></div>
+                    <div class="solution" id="solution5">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 3 + 7 + 5 = 15</div>
+                        <div class="solution-step">1 част = 4500 ÷ 15 = 300 лв</div>
+                        <div class="solution-step">Спонсорства: 7 × 300 = 2100 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 6 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 6</span>
+                        <span class="difficulty hard">Трудно</span>
+                    </div>
+                    <div class="exercise-emoji">👥</div>
+                    <div class="exercise-context">
+                        Scenario: Follower growth analysis
+                    </div>
+                    <div class="exercise-text">
+                        TikTok creator има followers и haters в отношение 11:2. Ако хейтърите са с 2700 по-малко от феновете, колко followers има?
+                    </div>
+                    <div class="input-group">
+                        <span>Followers:</span>
+                        <input type="number" id="q6a" placeholder="Отговор">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(6, 3300)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(6)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback6"></div>
+                    <div class="solution" id="solution6">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Разлика в части: 11 - 2 = 9 части</div>
+                        <div class="solution-step">9 части = 2700</div>
+                        <div class="solution-step">1 част = 2700 ÷ 9 = 300</div>
+                        <div class="solution-step">Followers: 11 × 300 = 3300</div>
+                        <div class="solution-step">Haters: 2 × 300 = 600</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Спорт задачи -->
+            <div class="section">
+                <h2>⚽ Спорт & Фитнес</h2>
+
+                <!-- Задача 7 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 7</span>
+                        <span class="difficulty easy">Лесно</span>
+                    </div>
+                    <div class="exercise-emoji">🏀</div>
+                    <div class="exercise-context">
+                        Scenario: Баскетболен отбор разпределя тренировъчно време
+                    </div>
+                    <div class="exercise-text">
+                        Баскетболният отбор на училището тренира 150 минути дневно. Времето за техника, тактика и физическа подготовка е в отношение 4:3:3. Колко време е всяка част?
+                    </div>
+                    <div class="input-group">
+                        <span>Техника:</span>
+                        <input type="number" id="q7a" placeholder="мин">
+                        <span>Тактика:</span>
+                        <input type="number" id="q7b" placeholder="мин">
+                        <span>Физика:</span>
+                        <input type="number" id="q7c" placeholder="мин">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkAnswer3(7, 60, 45, 45)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(7)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback7"></div>
+                    <div class="solution" id="solution7">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 4 + 3 + 3 = 10</div>
+                        <div class="solution-step">1 част = 150 ÷ 10 = 15 мин</div>
+                        <div class="solution-step">Техника: 4 × 15 = 60 мин</div>
+                        <div class="solution-step">Тактика: 3 × 15 = 45 мин</div>
+                        <div class="solution-step">Физика: 3 × 15 = 45 мин</div>
+                    </div>
+                </div>
+
+                <!-- Задача 8 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 8</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">🏃</div>
+                    <div class="exercise-context">
+                        Scenario: Маратон с различни дистанции
+                    </div>
+                    <div class="exercise-text">
+                        На маратон участниците в 5км, 10км и 21км дистанции са в отношение 8:5:2. Ако в 21км вземат участие 60 души, колко са всички участници?
+                    </div>
+                    <div class="input-group">
+                        <span>Общо участници:</span>
+                        <input type="number" id="q8a" placeholder="Отговор">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(8, 450)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(8)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback8"></div>
+                    <div class="solution" id="solution8">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">21км са 2 части = 60 души</div>
+                        <div class="solution-step">1 част = 60 ÷ 2 = 30 души</div>
+                        <div class="solution-step">5км: 8 × 30 = 240 души</div>
+                        <div class="solution-step">10км: 5 × 30 = 150 души</div>
+                        <div class="solution-step">21км: 60 души</div>
+                        <div class="solution-step">Общо: 240 + 150 + 60 = 450 участници</div>
+                    </div>
+                </div>
+
+                <!-- Задача 9 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 9</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">⚽</div>
+                    <div class="exercise-context">
+                        Scenario: Футболна академия разпределя бюджет
+                    </div>
+                    <div class="exercise-text">
+                        Футболна академия има годишен бюджет от 360 000 лв. Разходите за екипировка, заплати на треньори и терени са в отношение 2:5:3. Колко се харчи за всяка категория?
+                    </div>
+                    <div class="input-group">
+                        <span>Екипировка:</span>
+                        <input type="number" id="q9a" placeholder="лв">
+                        <span>Заплати:</span>
+                        <input type="number" id="q9b" placeholder="лв">
+                        <span>Терени:</span>
+                        <input type="number" id="q9c" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkAnswer3(9, 72000, 180000, 108000)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(9)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback9"></div>
+                    <div class="solution" id="solution9">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 2 + 5 + 3 = 10</div>
+                        <div class="solution-step">1 част = 360 000 ÷ 10 = 36 000 лв</div>
+                        <div class="solution-step">Екипировка: 2 × 36 000 = 72 000 лв</div>
+                        <div class="solution-step">Заплати: 5 × 36 000 = 180 000 лв</div>
+                        <div class="solution-step">Терени: 3 × 36 000 = 108 000 лв</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech & Lifestyle -->
+            <div class="section">
+                <h2>💻 Tech, Fashion & Lifestyle</h2>
+
+                <!-- Задача 10 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 10</span>
+                        <span class="difficulty easy">Лесно</span>
+                    </div>
+                    <div class="exercise-emoji">💻</div>
+                    <div class="exercise-context">
+                        Scenario: Gaming setup budget
+                    </div>
+                    <div class="exercise-text">
+                        Спестил си 2400 лв за gaming setup. Искаш да разпределиш парите за PC, монитор и периферия в отношение 5:2:1. Колко ще струва PC-то?
+                    </div>
+                    <div class="input-group">
+                        <span>PC:</span>
+                        <input type="number" id="q10a" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(10, 1500)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(10)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback10"></div>
+                    <div class="solution" id="solution10">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 5 + 2 + 1 = 8</div>
+                        <div class="solution-step">1 част = 2400 ÷ 8 = 300 лв</div>
+                        <div class="solution-step">PC: 5 × 300 = 1500 лв</div>
+                        <div class="solution-step">Монитор: 2 × 300 = 600 лв</div>
+                        <div class="solution-step">Периферия: 1 × 300 = 300 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 11 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 11</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">👟</div>
+                    <div class="exercise-context">
+                        Scenario: Sneaker store разпродажба
+                    </div>
+                    <div class="exercise-text">
+                        В магазин за кецове Nike, Adidas и Puma модели са в отношение 7:5:3. Ако Nike моделите са с 48 повече от Puma, колко са всички кецове?
+                    </div>
+                    <div class="input-group">
+                        <span>Всички кецове:</span>
+                        <input type="number" id="q11a" placeholder="Отговор">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(11, 180)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(11)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback11"></div>
+                    <div class="solution" id="solution11">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Разлика в части: 7 - 3 = 4 части</div>
+                        <div class="solution-step">4 части = 48 кеца</div>
+                        <div class="solution-step">1 част = 48 ÷ 4 = 12 кеца</div>
+                        <div class="solution-step">Nike: 7 × 12 = 84</div>
+                        <div class="solution-step">Adidas: 5 × 12 = 60</div>
+                        <div class="solution-step">Puma: 3 × 12 = 36</div>
+                        <div class="solution-step">Всички: 84 + 60 + 36 = 180 кеца</div>
+                    </div>
+                </div>
+
+                <!-- Задача 12 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 12</span>
+                        <span class="difficulty hard">Трудно</span>
+                    </div>
+                    <div class="exercise-emoji">📱</div>
+                    <div class="exercise-context">
+                        Scenario: Smartphone storage management
+                    </div>
+                    <div class="exercise-text">
+                        Телефонът ти има 256 GB памет. Приложения, снимки и видеа заемат памет в отношение 3:8:5. Ако имаш 128 GB заети, колко GB са снимките?
+                    </div>
+                    <div class="input-group">
+                        <span>Снимки (GB):</span>
+                        <input type="number" id="q12a" placeholder="Отговор">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(12, 64)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(12)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback12"></div>
+                    <div class="solution" id="solution12">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 3 + 8 + 5 = 16</div>
+                        <div class="solution-step">1 част = 128 ÷ 16 = 8 GB</div>
+                        <div class="solution-step">Приложения: 3 × 8 = 24 GB</div>
+                        <div class="solution-step">Снимки: 8 × 8 = 64 GB</div>
+                        <div class="solution-step">Видеа: 5 × 8 = 40 GB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food & Money -->
+            <div class="section">
+                <h2>🍕 Храна, Пари & Real Life</h2>
+
+                <!-- Задача 13 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 13</span>
+                        <span class="difficulty easy">Лесно</span>
+                    </div>
+                    <div class="exercise-emoji">🍕</div>
+                    <div class="exercise-context">
+                        Scenario: Pizza party с приятели
+                    </div>
+                    <div class="exercise-text">
+                        Трима приятели поръчват пици за 84 лв. Те разделят сметката в отношение 2:3:2 според това колко изядоха. Колко плаща всеки?
+                    </div>
+                    <div class="input-group">
+                        <span>Първи:</span>
+                        <input type="number" id="q13a" placeholder="лв">
+                        <span>Втори:</span>
+                        <input type="number" id="q13b" placeholder="лв">
+                        <span>Трети:</span>
+                        <input type="number" id="q13c" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkAnswer3(13, 24, 36, 24)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(13)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback13"></div>
+                    <div class="solution" id="solution13">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Общо части: 2 + 3 + 2 = 7</div>
+                        <div class="solution-step">1 част = 84 ÷ 7 = 12 лв</div>
+                        <div class="solution-step">Първи: 2 × 12 = 24 лв</div>
+                        <div class="solution-step">Втори: 3 × 12 = 36 лв</div>
+                        <div class="solution-step">Трети: 2 × 12 = 24 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 14 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 14</span>
+                        <span class="difficulty medium">Средно</span>
+                    </div>
+                    <div class="exercise-emoji">💸</div>
+                    <div class="exercise-context">
+                        Scenario: Джобни пари management
+                    </div>
+                    <div class="exercise-text">
+                        Двама братя получават джобни пари в отношение 4:5 според възрастта си. Ако по-големият получава 75 лв месечно, колко получава по-малкият?
+                    </div>
+                    <div class="input-group">
+                        <span>По-малкият брат:</span>
+                        <input type="number" id="q14a" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(14, 60)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(14)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback14"></div>
+                    <div class="solution" id="solution14">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">По-големият получава 5 части = 75 лв</div>
+                        <div class="solution-step">1 част = 75 ÷ 5 = 15 лв</div>
+                        <div class="solution-step">По-малкият: 4 × 15 = 60 лв</div>
+                    </div>
+                </div>
+
+                <!-- Задача 15 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <span class="exercise-number">Задача 15</span>
+                        <span class="difficulty hard">Трудно</span>
+                    </div>
+                    <div class="exercise-emoji">🎂</div>
+                    <div class="exercise-context">
+                        Scenario: Парти организация с бюджет
+                    </div>
+                    <div class="exercise-text">
+                        Организираш рожден ден с бюджет 900 лв. Храна, украса и музика са в отношение 6:2:1. След това добавяш още 180 лв за подаръци за гостите. Колко струва всичко за храна в края?
+                    </div>
+                    <div class="input-group">
+                        <span>Храна (общо):</span>
+                        <input type="number" id="q15a" placeholder="лв">
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-check" onclick="checkSingle(15, 600)">Провери</button>
+                        <button class="btn btn-show" onclick="showSolution(15)">Виж решение</button>
+                    </div>
+                    <div class="feedback" id="feedback15"></div>
+                    <div class="solution" id="solution15">
+                        <strong>🎯 Решение:</strong><br>
+                        <div class="solution-step">Първоначален бюджет: 900 лв</div>
+                        <div class="solution-step">Общо части: 6 + 2 + 1 = 9</div>
+                        <div class="solution-step">1 част = 900 ÷ 9 = 100 лв</div>
+                        <div class="solution-step">Храна: 6 × 100 = 600 лв</div>
+                        <div class="solution-step">Украса: 2 × 100 = 200 лв</div>
+                        <div class="solution-step">Музика: 1 × 100 = 100 лв</div>
+                        <div class="solution-step">Подаръците са допълнителни, не влияят на храната</div>
+                        <div class="solution-step">Отговор: 600 лв за храна</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Съвети -->
+            <div class="section">
+                <div class="tips">
+                    <h3>💡 Pro Tips за Gen Alpha</h3>
+                    <ul>
+                        <li><strong>Gaming mindset:</strong> Мисли за пропорциите като за распределение на XP points или loot</li>
+                        <li><strong>Visual hack:</strong> Направи си схема или таблица - помага много!</li>
+                        <li><strong>Check yourself:</strong> Винаги проверявай като съберете всички части</li>
+                        <li><strong>Real life connection:</strong> Тези задачи са базирани на реални ситуации - така ще ги запомниш по-лесно</li>
+                        <li><strong>Practice makes perfect:</strong> Колкото повече решаваш, толкова по-бързо ставаш</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let solvedProblems = new Set();
+        let streak = 0;
+        let lastCorrect = true;
+        const totalProblems = 15;
+
+        function checkAnswer3(questionNum, answer1, answer2, answer3) {
+            const input1 = parseFloat(document.getElementById(`q${questionNum}a`).value);
+            const input2 = parseFloat(document.getElementById(`q${questionNum}b`).value);
+            const input3 = parseFloat(document.getElementById(`q${questionNum}c`).value);
+            const feedback = document.getElementById(`feedback${questionNum}`);
+
+            if (input1 === answer1 && input2 === answer2 && input3 === answer3) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '🎉 Perfect! Верен отговор!';
+                if (!solvedProblems.has(questionNum)) {
+                    solvedProblems.add(questionNum);
+                    if (lastCorrect) {
+                        streak++;
+                    }
+                    lastCorrect = true;
+                    updateProgress();
+                }
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '❌ Не съвсем. Опитай отново или виж решението! 💪';
+                lastCorrect = false;
+                streak = 0;
+                updateProgress();
+            }
+        }
+
+        function checkSingle(questionNum, answer) {
+            const input = parseFloat(document.getElementById(`q${questionNum}a`).value);
+            const feedback = document.getElementById(`feedback${questionNum}`);
+
+            if (input === answer) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '🎉 Perfect! Верен отговор!';
+                if (!solvedProblems.has(questionNum)) {
+                    solvedProblems.add(questionNum);
+                    if (lastCorrect) {
+                        streak++;
+                    }
+                    lastCorrect = true;
+                    updateProgress();
+                }
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '❌ Не съвсем. Опитай отново или виж решението! 💪';
+                lastCorrect = false;
+                streak = 0;
+                updateProgress();
+            }
+        }
+
+        function showSolution(questionNum) {
+            const solution = document.getElementById(`solution${questionNum}`);
+            solution.classList.toggle('show');
+        }
+
+        function updateProgress() {
+            const percentage = (solvedProblems.size / totalProblems) * 100;
+            const progressBar = document.getElementById('progressBar');
+            const solvedCount = document.getElementById('solvedCount');
+            const percentSolved = document.getElementById('percentSolved');
+            const streakElement = document.getElementById('streak');
+            
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage === 0 ? 'START' : Math.round(percentage) + '%';
+            solvedCount.textContent = solvedProblems.size;
+            percentSolved.textContent = Math.round(percentage) + '%';
+            streakElement.textContent = streak;
+
+            // Celebration at milestones
+            if (solvedProblems.size === 5) {
+                showCelebration('🔥 5 задачи! Keep going!');
+            } else if (solvedProblems.size === 10) {
+                showCelebration('💪 10 задачи! You\'re crushing it!');
+            } else if (solvedProblems.size === 15) {
+                showCelebration('🎉 GG WP! Всички задачи решени!');
+            }
+        }
+
+        function showCelebration(message) {
+            // Could add a modal or toast notification here
+            console.log(message);
+        }
+    </script>
+</body>
+</html>
